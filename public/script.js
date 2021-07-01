@@ -120,7 +120,7 @@ const setUnmuteButton = () => {
 const setStopVideo = () => {
     const html = `
     <i class="fas fa-video"></i>
-    <span>Stop Video</span>
+    <span>Stop</span>
   `
     document.querySelector('.main__video_button').innerHTML = html;
 }
@@ -128,7 +128,9 @@ const setStopVideo = () => {
 const setPlayVideo = () => {
     const html = `
   <i class="stop fas fa-video-slash"></i>
-    <span>Play Video</span>
+    <span>Play</span>
   `
     document.querySelector('.main__video_button').innerHTML = html;
 }
+
+// Modal setup
