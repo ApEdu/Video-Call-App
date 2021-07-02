@@ -24,8 +24,13 @@ app.get('/room', (req, res) => {
 })
 
 app.get('/room/:room', (req, res) => {
-    res.render('room', { roomId: req.params.room })
+    var name = req.query.name || ''
+    res.render('room', { roomId: req.params.room, name: name })
 })
+
+// Mailing service
+const transporter = require('./src/mailer');
+
 
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
@@ -36,6 +41,16 @@ io.on('connection', socket => {
             //send message to the same room
             io.to(roomId).emit('createMessage', message)
         });
+
+        socket.on('invite', (info) => {
+            transporter.sendMail(info, (err, res) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log(res.response);
+            })
+        })
 
         socket.on('disconnect', () => {
             socket.broadcast.to(roomId).emit('user-disconnected', userId)

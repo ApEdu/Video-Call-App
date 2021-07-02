@@ -36,7 +36,7 @@ navigator.mediaDevices.getUserMedia({
         }
     });
     socket.on("createMessage", message => {
-        $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+        $("ul").append(`<li class="message"><b>${USERNAME}</b><br/>${message}</li>`);
         scrollToBottom()
     })
 })
@@ -69,8 +69,6 @@ function addVideoStream(video, stream) {
     })
     videoGrid.append(video)
 }
-
-
 
 const scrollToBottom = () => {
     var d = $('.main__chat_window');
@@ -133,4 +131,13 @@ const setPlayVideo = () => {
     document.querySelector('.main__video_button').innerHTML = html;
 }
 
-// Modal setup
+// Get username prompt if not present
+$(document).ready(function () {
+    if (USERNAME) {
+        console.log("Welcome !!", USERNAME)
+    } else {
+        setTimeout(function () {
+            $('#getUserName').modal('show');
+        }, 2000);
+    }
+})
