@@ -10,12 +10,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Enter invitees email addresses ( Comma separated )</p>
+                <form id="inviteForm">
+                    <div class="form-group">
+                        <input name="sender" type="text" class="form-control" placeholder="Name" value="" required>
+                    </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Enter invitees email addresses ( Comma separated )"
+                            name="to" value=""></textarea>
+                    </div>
+                    <button type="button" onclick="getUserNameClicked()" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>

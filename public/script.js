@@ -141,3 +141,40 @@ $(document).ready(function () {
         }, 2000);
     }
 })
+
+const getUserNameClicked = () => {
+    var userForm = document.getElementById('inviteForm');
+    var formData = new FormData(userForm)
+
+    // Validation of 'to' input
+     var toIDs = formData.get('to').split(',').map(toid => toid.trim());
+    // simple regex check for email id
+    var re = /\S+@\S+\.\S+/;
+    for (const toid of toIDs) {
+        console.log(re.test(toid))
+        if (!re.test(toid)) {
+            alert('One or more invitee email id is incorrect!!')
+            return
+        }
+    }
+
+    // subject for the email
+    var sbj = `Join Kall room - from ${formData.get('sender')}`
+    // body of the email
+    var msg = `HI, <br> This is ${formData.get('sender')}, I am using Kall. Please join the Kall room by clicking <a href=${window.location.href}>here</a>`
+
+    formData.append('msg',msg)
+    formData.append('sbj',sbj)
+    const data = new URLSearchParams(formData);
+
+    fetch('/invite', {
+        method: "POST",
+        body: data
+    }).then((res) => {
+        alert(res.body)
+        $('#emailInvite').modal('hide');
+    }).catch((error) => {
+        alert(error)
+    })
+
+}

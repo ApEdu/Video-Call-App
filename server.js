@@ -15,6 +15,9 @@ app.use('/peerjs', peerServer);
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
+app.use(express.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
+
 app.get('/', (req, res) => [
     res.render('home')
 ])
@@ -31,6 +34,39 @@ app.get('/room/:room', (req, res) => {
 // Mailing service
 const transporter = require('./src/mailer');
 
+// post to send email
+app.post('/invite', (req, res) => {
+    console.log(req.body.sender, req.body.to);
+
+    // 'to' ids array construction
+    var toIDs = req.body.to.split(',').map(toid => toid.trim());
+
+    // Construct email    
+    var info = {
+            from: 'webDev-169@outlook.com',
+            to: toIDs,
+            subject: req.body.sbj,
+            html: req.body.msg
+        }
+
+    var responseMsg;
+
+    // Send Email
+    transporter.sendMail(info, (err, res) => {
+        if (err) {
+            console.log(err);
+            responseMsg = 'Some error occurred!! Sorry, please try later'
+            return;
+        }
+        responseMsg = 'Email Sent !!'
+        console.log(res.response);
+    })
+
+    // Send response to fetch api
+    res.send(responseMsg)
+
+})
+
 
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId) => {
@@ -42,15 +78,6 @@ io.on('connection', socket => {
             io.to(roomId).emit('createMessage', message, username)
         });
 
-        socket.on('invite', (info) => {
-            transporter.sendMail(info, (err, res) => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                console.log(res.response);
-            })
-        })
 
         socket.on('disconnect', () => {
             socket.broadcast.to(roomId).emit('user-disconnected', userId)
