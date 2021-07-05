@@ -19,7 +19,7 @@
                         <textarea class="form-control" placeholder="Enter invitees email addresses ( Comma separated )"
                             name="to" value=""></textarea>
                     </div>
-                    <button type="button" onclick="getUserNameClicked()" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="sendEmailInvite()" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
@@ -40,11 +40,11 @@
                 -->
             </div>
             <div class="modal-body">
-                <form method="GET">
+                <form id="nameForm">
                     <div class="form-group">
                         <input name="name" type="text" class="form-control" placeholder="Name" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="getUserNameBtn()" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

@@ -28,8 +28,8 @@ app.get('/room', (req, res) => {
 })
 
 app.get('/room/:room', (req, res) => {
-    var name = req.query.name || ''
-    res.render('room', { roomId: req.params.room, name: name })
+    //var name = req.query.name || ''
+    res.render('room', { roomId: req.params.room })
 })
 
 // Mailing service

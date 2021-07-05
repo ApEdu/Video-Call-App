@@ -142,12 +142,23 @@ $(document).ready(function () {
     }
 })
 
-const getUserNameClicked = () => {
-    var userForm = document.getElementById('inviteForm');
+// get User name from form
+const getUserNameBtn = () => {
+    var userForm = document.getElementById('nameForm');
     var formData = new FormData(userForm)
 
+    USERNAME = formData.get('name')
+    console.log('Welcome !,', USERNAME)
+    $('#getUserName').modal('hide');
+}
+
+// Send Email Invite 
+const sendEmailInvite = () => {
+    var inviteForm = document.getElementById('inviteForm');
+    var formData = new FormData(inviteForm)
+
     // Validation of 'to' input
-     var toIDs = formData.get('to').split(',').map(toid => toid.trim());
+    var toIDs = formData.get('to').split(',').map(toid => toid.trim());
     // simple regex check for email id
     var re = /\S+@\S+\.\S+/;
     for (const toid of toIDs) {
@@ -163,8 +174,8 @@ const getUserNameClicked = () => {
     // body of the email
     var msg = `HI, <br> This is ${formData.get('sender')}, I am using Kall. Please join the Kall room by clicking <a href=${window.location.href}>here</a>`
 
-    formData.append('msg',msg)
-    formData.append('sbj',sbj)
+    formData.append('msg', msg)
+    formData.append('sbj', sbj)
     const data = new URLSearchParams(formData);
 
     fetch('/invite', {
