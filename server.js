@@ -27,9 +27,17 @@ app.get('/room', (req, res) => {
     res.redirect(`/room/${uuidV4()}`)
 })
 
+app.get('/about', (req, res) => {
+    res.render('about')
+})
+
 app.get('/room/:room', (req, res) => {
     //var name = req.query.name || ''
     res.render('room', { roomId: req.params.room })
+})
+
+app.get('/left', (req, res) => {
+    res.render('meetLeft')
 })
 
 // Mailing service

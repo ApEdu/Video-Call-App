@@ -16,6 +16,7 @@
     <script src="/socket.io/socket.io.js" defer></script>
     <link rel="stylesheet" href="/room.css">
     <script src="/script.js" defer></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <style>
         #video-grid {
@@ -53,10 +54,6 @@
                     </div>
                 </div>
                 <div class="main__controls__block">
-                    <div class="main__controls__button">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Participants</span>
-                    </div>
                     <div class="main__controls__button" data-toggle="modal" data-target="#emailInvite">
                         <i class="fas fa-user-plus"></i>
                         <span>Invite</span>
@@ -68,7 +65,7 @@
                 </div>
                 <div class="main__controls__block">
                     <div class="main__controls__button">
-                        <span class="leave_meeting">EXIT</span>
+                        <a class="leave_meeting" href="/left">EXIT</a>
                     </div>
                 </div>
             </div>
