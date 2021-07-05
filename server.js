@@ -1,3 +1,4 @@
+const { render } = require('ejs');
 const express = require('express')
 const app = express()
 // const cors = require('cors')
@@ -43,11 +44,11 @@ app.post('/invite', (req, res) => {
 
     // Construct email    
     var info = {
-            from: 'webDev-169@outlook.com',
-            to: toIDs,
-            subject: req.body.sbj,
-            html: req.body.msg
-        }
+        from: 'webDev-169@outlook.com',
+        to: toIDs,
+        subject: req.body.sbj,
+        html: req.body.msg
+    }
 
     var responseMsg;
 
@@ -66,6 +67,11 @@ app.post('/invite', (req, res) => {
     res.send(responseMsg)
 
 })
+
+// Error Page
+app.use(function (req, res, next) {
+    res.status(404).render('PageNotFound');
+});
 
 
 io.on('connection', socket => {
