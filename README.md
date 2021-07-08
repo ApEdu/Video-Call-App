@@ -19,7 +19,6 @@
     <h3 align="center">Microsoft Engage 2021 Challenge</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
     <br />
     <!-- Youtube Video link -->
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
