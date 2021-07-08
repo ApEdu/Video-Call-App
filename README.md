@@ -1,4 +1,4 @@
-a<!--
+<!--
     README template inspired from https://github.com/othneildrew/Best-README-Template/blob/master/README.md
 -->
 
@@ -12,8 +12,6 @@ a<!--
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![LinkedIn][linkedin-shield]](www.linkedin.com/in/apoorv-garg-24q34)
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -139,9 +137,9 @@ In Progress
 <!-- CONTACT -->
 ## Contact
 
-Gmail - gargapoorv12@gmail.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Gmail : gargapoorv12@gmail.com
+LinkedIn : www.linkedin.com/in/apoorv-garg-24q34
+Project Link : [https://github.com/ApEdu/Video-Call-App](https://github.com/ApEdu/Video-Call-App)
 
 
 
