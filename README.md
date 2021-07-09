@@ -2,16 +2,6 @@
     README template inspired from https://github.com/othneildrew/Best-README-Template/blob/master/README.md
 -->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -21,7 +11,7 @@
   <p align="center">
     <br />
     <!-- Youtube Video link -->
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="#">View Demo</a>
     ·
     <a href="https://gentle-woodland-21663.herokuapp.com/">Live Site</a>
   </p>
@@ -41,6 +31,9 @@
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
+      <ul>
+        <li><a href="#architecture">Architecture</a></li>
+      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -50,8 +43,10 @@
         <li><a href="#running-on-local-network">Running</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#scope">Roadmap</a></li>
+    <li><a href="#snapshots">Snapshots</a></li>
+    <li>
+    <a href="#scope">Scope</a>
+    </li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -80,15 +75,28 @@ Below image provides insight to sprint wise deliverables and bugs
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 * [Express](https://expressjs.com/)
-* [Socketio](https://socket.io/)
+* [Socket.io](https://socket.io/)
 * [Peerjs](https://peerjs.com/)
+
+### **Architecture**
+
+<span style="color:#bca0dc">Kall</span> uses a Peer-to-Peer Mesh architecture to provide group video chat functionality. It uses [WebRTC](https://webrtc.org/) which allows real time media communications directly between browser and devices. Since WebRTC inherently does not provide [signaling](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Signaling_and_video_calling) which is essential for establishing connection, [Peerjs](https://peerjs.com/) wrapper is used which provides signaling and eases establishing connection. [Socket.io](https://socket.io/) enables bidirectional, real-time and event based browser server communication and is required for communication of each peer with the node server. Additionally [nodemailer](https://nodemailer.com/about/) is used for email invite functionality.
+
+| ![mesh](./public/Mesh.png) | 
+|:--:| 
+| WebRTC conference with Mesh Architecture |
+
+Articles to know more -
+- [Signaling Server](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Signaling_and_video_calling)
+- [STUN/TURN Server](https://webrtc.ventures/2020/12/webrtc-signaling-stun-vs-turn/)
+- [Getting Started with WebRTC](https://www.html5rocks.com/en/tutorials/webrtc/basics/)
 
 <!-- GETTING STARTED -->
 ## **Getting Started**
 
 ### Prerequisites
 
-Kall uses npm as package manager and is required to install necessary libraries and packages. Node is used for backend development. Therefore node and npm are required which can be downloaded from [here](https://nodejs.org/en/download/)
+<span style="color:#bca0dc">Kall</span> uses npm as package manager and is required to install necessary libraries and packages. Node is used for backend development. Therefore node and npm are required which can be downloaded from [here](https://nodejs.org/en/download/)
 
 ### Installation
 
@@ -112,36 +120,46 @@ Kall uses npm as package manager and is required to install necessary libraries 
     ```sh
     npm run start
     ``` 
-3. Go to your localhost
+3. Go to your localhost:3030
 
 
 <!-- USAGE EXAMPLES -->
-## **Usage**
+## **Snapshots**
 
-In Progress
+| ![home](./public/home.jpg) | 
+|:--:| 
+| Home Screen |
+
+| ![room](./public/room.jpg) | 
+|:--:| 
+| Video Chat room |
 
 
 <!-- ROADMAP -->
 ## Scope
 
 ### Features
-- Connectivity for 4-5 participants
+- Connectivity for 4-5 participants ( network dependent )
 - Email invite functionality to bypass url copy pasting practise
 - In-call text chat to allow textual interchange
 
 ### Possible Improvements
 - Kall uses P2P mesh architecture for video calling, an SFU/MCU implementation can be worked upon which will reduce connection load
-- Kall uses public cloud PeerServer which does not provide very well cross network connectivity, deploying a custom turn server and peerserver can improve network connectivity issues
+- Kall uses public cloud PeerServer which does not provide very well cross network connectivity, deploying a custom turn server,stun server and peerserver can improve network connectivity issues
 
 <!-- CONTACT -->
 ## Contact
 
-Gmail : gargapoorv12@gmail.com
-LinkedIn : www.linkedin.com/in/apoorv-garg-24q34
+Gmail : [gargapoorv12@gmail.com](gargapoorv12@gmail.com)
+
+LinkedIn : [www.linkedin.com/in/apoorv-garg-24q34](www.linkedin.com/in/apoorv-garg-24q34)
+
 Project Link : [https://github.com/ApEdu/Video-Call-App](https://github.com/ApEdu/Video-Call-App)
-
-
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
- In Progress
+- [Font Awesome](https://fontawesome.com/)
+- [nodemailer](https://nodemailer.com/about/)
+- [uuid](https://www.npmjs.com/package/uuid?activeTab=readme)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [ejs](https://ejs.co/)

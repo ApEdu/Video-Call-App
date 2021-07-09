@@ -3,7 +3,18 @@ const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '443',
+    config: {
+        'iceServers': [
+            {
+                'urls': 'turn:numb.viagenie.ca?transport=udp',
+                'username': 'gargapoorv12@gmail.com',
+                'credential': 'MerRatio12'
+            },
+            { 'urls': 'stun:stun.l.google.com:19302' },
+            { "url": 'stun:stun1.l.google.com:19302' }
+        ]
+    }
 })
 let myVideoStream;
 const myVideo = document.createElement('video')
