@@ -1,8 +1,7 @@
+// Requiring necessary packages
 const { render } = require('ejs');
 const express = require('express')
 const app = express()
-// const cors = require('cors')
-// app.use(cors())
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { ExpressPeerServer } = require('peer');
@@ -10,32 +9,32 @@ const peerServer = ExpressPeerServer(server, {
     debug: true
 });
 const { v4: uuidV4 } = require('uuid')
-
+// setting peerserver path
 app.use('/peerjs', peerServer);
-
+// setting up view engine
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
 
+// Home route
 app.get('/', (req, res) => [
     res.render('home')
 ])
-
+// Room route
 app.get('/room', (req, res) => {
     res.redirect(`/room/${uuidV4()}`)
 })
-
+// About route
 app.get('/about', (req, res) => {
     res.render('about')
 })
-
+// Room route with id
 app.get('/room/:room', (req, res) => {
     //var name = req.query.name || ''
     res.render('room', { roomId: req.params.room })
 })
-
+// meet left route
 app.get('/left', (req, res) => {
     res.render('meetLeft')
 })

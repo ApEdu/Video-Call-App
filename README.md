@@ -11,7 +11,7 @@
   <p align="center">
     <br />
     <!-- Youtube Video link -->
-    <a href="#">View Demo</a>
+    <a href="https://youtu.be/TIi0GKkDKCE">View Demo</a>
     ·
     <a href="https://gentle-woodland-21663.herokuapp.com/">Live Site</a>
   </p>
@@ -77,6 +77,14 @@ Below image provides insight to sprint wise deliverables and bugs
 * [Express](https://expressjs.com/)
 * [Socket.io](https://socket.io/)
 * [Peerjs](https://peerjs.com/)
+
+Additional packages used
+
+- [Font Awesome](https://fontawesome.com/)
+- [nodemailer](https://nodemailer.com/about/)
+- [uuid](https://www.npmjs.com/package/uuid?activeTab=readme)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [ejs](https://ejs.co/)
 
 ### **Architecture**
 
@@ -158,8 +166,10 @@ Project Link : [https://github.com/ApEdu/Video-Call-App](https://github.com/ApEd
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-- [Font Awesome](https://fontawesome.com/)
-- [nodemailer](https://nodemailer.com/about/)
-- [uuid](https://www.npmjs.com/package/uuid?activeTab=readme)
-- [nodemon](https://www.npmjs.com/package/nodemon)
-- [ejs](https://ejs.co/)
+I would like to thank acehacker and microsoft team for conducting the Microsoft Engage 2021 Program. I would also like to thank my mentors , Mayank Rawat and Deepak Kumar for their constant guidance.
+
+Videos by [Traversy Media](https://www.youtube.com/user/TechGuyWeb) were a great source for learning web development.
+
+Special thanks to Ritik Taneja and Varsha Jangir for their help in sticky situations.
+
+Lastly, Thank you youtube and stackoverflow !!
