@@ -154,6 +154,7 @@ Articles to know more -
 ### Possible Improvements
 - Kall uses P2P mesh architecture for video calling, an SFU/MCU implementation can be worked upon which will reduce connection load
 - Kall uses public cloud PeerServer which does not provide very well cross network connectivity, deploying a custom turn server,stun server and peerserver can improve network connectivity issues
+- Have tried other alternatives not much improvement
 
 <!-- CONTACT -->
 ## Contact
